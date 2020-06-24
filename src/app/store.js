@@ -1,8 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { createStore, combineReducers } from "redux";
+import todosReducer from "../reducers/todosReducer";
+import loginReducer from "../reducers/loginReducer";
 
-export default configureStore({
-  reducer: {
-    counter: counterReducer,
-  },
-});
+export default createStore(
+  combineReducers({
+    todosReducer,
+    loginReducer,
+  }),
+  window.devToolsExtension && window.devToolsExtension()
+);
